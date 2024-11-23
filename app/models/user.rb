@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :interests, through: :user_interests
 
   has_many :user_skils
-  has_many :skills, through: :user_skils, class_name: 'Skil'
+  has_many :skills, through: :user_skills
 end

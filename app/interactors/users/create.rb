@@ -31,7 +31,7 @@ class Users::Create < ActiveInteraction::Base
     return errors.merge(@user.errors) if @user.invalid?
 
     create_interest
-    create_skil
+    create_skill
   end
 
   def create_params
@@ -52,12 +52,12 @@ class Users::Create < ActiveInteraction::Base
     end
   end
 
-  def create_skil
-    params[:skills].split(',').each do |skil|
-      skil = Skil.find(name: skil)
-      next if skil.nil?
+  def create_skill
+    params[:skills].split(',').each do |skill|
+      skill = Skill.find(name: skill)
+      next if skill.nil?
 
-      @user.user_skils.create(skil: skil)
+      @user.user_skils.create(skill: skill)
     end
   end
 
